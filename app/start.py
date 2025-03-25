@@ -8,8 +8,7 @@ import subprocess
 import importlib.util
 import time
 
-# Welcome message
-WELCOME_MESSAGE = """
+print ("""
 ╔══════════════════════════════════════════════════════════════════╗
 ║                    BMP to PNG Converter v1.0                     ║
 ║                                                                  ║
@@ -24,9 +23,8 @@ WELCOME_MESSAGE = """
 ║                                                                  ║
 ║  Created by: Vexx                                                ║
 ╚══════════════════════════════════════════════════════════════════╝
-"""
+""")
 
-# Set up paths
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PYTHON_DIR = os.path.join(BASE_DIR, "python_embedded")
 PYTHON_EXE = os.path.join(PYTHON_DIR, "python.exe")
@@ -35,20 +33,17 @@ MAIN_APP = os.path.join(BASE_DIR, "app.py")
 def log(message, error=False):
     """Print a timestamped log message"""
     timestamp = time.strftime('%H:%M:%S')
+
     if error:
         print(f"[{timestamp}] ERROR: {message}")
-        input("Press Enter to exit...")  # Replace pause functionality
+        input("Press Enter to exit...") 
         sys.exit(1)
     else:
         print(f"[{timestamp}] {message}")
 
-# Check if Python executable exists
 if not os.path.exists(PYTHON_EXE):
     log("Embedded Python not found at " + PYTHON_EXE, error=True)
 
-print(WELCOME_MESSAGE)
-
-# Configure Python path
 sys.path.insert(0, BASE_DIR)
 os.environ["PATH"] = PYTHON_DIR + os.pathsep + os.environ.get("PATH", "")
 
@@ -76,9 +71,8 @@ def install_package(package_name):
 def setup_environment():
     """Set up the Python environment with required packages"""
     log("Setting up environment...")
-    
-    # Check and enable site-packages if needed
     pth_file = None
+
     for file in os.listdir(PYTHON_DIR):
         if file.endswith("._pth"):
             pth_file = os.path.join(PYTHON_DIR, file)
@@ -93,10 +87,8 @@ def setup_environment():
             with open(pth_file, 'w') as f:
                 f.write(content.replace('#import site', 'import site'))
             log("Site-packages enabled. Restarting script...")
-            # Restart the script to apply changes
             os.execv(sys.executable, [sys.executable] + sys.argv)
-    
-    # Check for pip
+
     if not check_module("pip"):
         log("Pip not available. Installing pip...")
         get_pip_path = os.path.join(PYTHON_DIR, "get-pip.py")
@@ -112,14 +104,12 @@ def setup_environment():
         subprocess.check_call([sys.executable, get_pip_path, "--no-warn-script-location"])
         log("Pip installed successfully")
     
-    # Check for required packages
     required_packages = ["pillow"]
     for package in required_packages:
         if not check_module(package.split("==")[0].replace("-", "_")):
             if not install_package(package):
                 log(f"Failed to install required package: {package}", error=True)
-    
-    # Check for tkinter - this is built-in and can't be installed via pip
+
     if not check_module("tkinter"):
         log("tkinter is not available. The GUI will not work.\ntkinter must be included with your Python installation.\nYou may need to install a full version of Python or manually copy tkinter files.", error=True)
     
@@ -128,6 +118,7 @@ def setup_environment():
 def run_main_app():
     """Run the main application"""
     log("Starting application...")
+    
     try:
         subprocess.check_call([sys.executable, MAIN_APP])
         return True

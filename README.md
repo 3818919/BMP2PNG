@@ -14,6 +14,9 @@ A simple tool to convert BMP images to PNG format with transparency support.
 - Windows operating system
 - No installation required - just run the .bat file
 
+## Download
+[Download for Windows](https://github.com/3818919/BMP2PNG/releases/download/release/bmp2png_v1.zip)
+
 ## How to Run
 1. Double-click `run.bat` to start the application
 2. The application will automatically set up any required dependencies
