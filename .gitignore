@@ -1,0 +1,2 @@
+# Ignore python_embedded directory and all its contents
+app/python_embedded/ 
