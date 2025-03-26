@@ -1,0 +1,139 @@
+{
+    "app": {
+        "title": "BMP to PNG Converter",
+        "width": 300,
+        "height": 180,
+        "icon": "app/icon.ico"
+    },
+    "colors": {
+        "background": "#1E1E1E",
+        "text": "#FFFFFF",
+        "button": {
+            "background": "#0078D4",
+            "foreground": "#FFFFFF",
+            "hover": "#106EBE",
+            "disabled": "#666666",
+            "disabled_text": "#999999"
+        },
+        "progress": {
+            "background": "#333333",
+            "foreground": "#0078D4"
+        },
+        "input": {
+            "background": "#2D2D2D",
+            "foreground": "#FFFFFF",
+            "border": "#3E3E3E",
+            "focus_border": "#0078D4"
+        },
+        "dropdown": {
+            "background": "#2D2D2D",
+            "foreground": "#FFFFFF",
+            "button_background": "#3E3E3E",
+            "button_foreground": "#FFFFFF",
+            "menu_background": "#2D2D2D",
+            "menu_foreground": "#FFFFFF",
+            "selected_background": "#0078D4",
+            "selected_foreground": "#FFFFFF"
+        }
+    },
+    "components": {
+        "button": {
+            "template": {
+                "width": 80,
+                "height": 30,
+                "corner_radius": 10,
+                "font": "Arial",
+                "font_size": 9
+            }
+        },
+        "label": {
+            "template": {
+                "font": "Arial",
+                "font_size": 9
+            }
+        },
+        "progress_bar": {
+            "template": {
+                "length": 280,
+                "thickness": 15
+            }
+        },
+        "entry": {
+            "template": {
+                "height": 30,
+                "corner_radius": 5,
+                "padding": 5
+            }
+        },
+        "dropdown": {
+            "template": {
+                "height": 30,
+                "corner_radius": 5,
+                "padding": 5,
+                "width": 15
+            }
+        },
+        "color_selector": {
+            "template": {
+                "button_size": 30,
+                "corner_radius": 5,
+                "padding": 2
+            }
+        }
+    },
+    "gui": {
+        "buttons": {
+            "select_folder": {
+                "text": "Select Folder",
+                "width": 80,
+                "height": 30,
+                "corner_radius": 10
+            },
+            "convert": {
+                "text": "Convert",
+                "width": 80,
+                "height": 30,
+                "corner_radius": 10
+            }
+        },
+        "labels": {
+            "directory": {
+                "width": 20,
+                "default_text": "No directory selected"
+            },
+            "status": {
+                "default_text": "Processing Message"
+            },
+            "credits": {
+                "text": "Created by Vexx"
+            }
+        },
+        "progress_bar": {
+            "length": 280,
+            "thickness": 15
+        },
+        "inputs": {
+            "text": {
+                "height": 30,
+                "corner_radius": 5,
+                "padding": 5
+            }
+        },
+        "dropdowns": {
+            "default": {
+                "height": 30,
+                "corner_radius": 5,
+                "padding": 5
+            }
+        },
+        "color_selector": {
+            "button_size": 30,
+            "corner_radius": 5,
+            "padding": 2
+        }
+    },
+    "conversion": {
+        "output_folder": "PNG_exports",
+        "transparent_color": "#000000"
+    }
+} 
